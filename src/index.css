@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primary-color {
+  @apply text-[#F1592A];
+}
+.bg-primary-color {
+  @apply bg-[#F1592A];
+}
