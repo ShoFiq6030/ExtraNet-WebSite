@@ -6,6 +6,8 @@ import Loader from "../components/common/Loader";
 import { useLoading } from "../context/LoadingContext";
 import Marquee from "react-fast-marquee";
 import { FaPhoneAlt } from "react-icons/fa";
+import DeveloperInfo from "../components/common/DeveloperInfo";
+
 
 export default function Layout() {
   const { startLoading, stopLoading } = useLoading();
@@ -48,6 +50,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <DeveloperInfo/>
       
     </div>
   );

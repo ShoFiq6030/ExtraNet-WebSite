@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
+import logo from "../../assets/etlogo-removebg.png";
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="flex-1">
           <NavLink to="/" className="flex items-center">
             <img
-              src="/src/assets/etlogo-removebg.png"
+              src={logo}
               alt="logo"
               className="w-12 mr-2"
             />

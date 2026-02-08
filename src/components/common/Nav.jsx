@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import Marquee from "react-fast-marquee";
 import { FaPhoneAlt } from "react-icons/fa";
+import logo from "../../assets/etlogo-removebg.png";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,11 +98,7 @@ export default function Nav() {
           {/* Logo Section */}
           <div className="flex-1">
             <div className="flex items-center" onClick={() => setIsOpen(false)}>
-              <img
-                src="/src/assets/etlogo-removebg.png"
-                alt="logo"
-                className="w-12 mr-2"
-              />
+              <img src={logo} alt="logo" className="w-12 mr-2" />
               <NavLink
                 to="/"
                 className="primary-color text-lg md:text-xl font-bold leading-none"
