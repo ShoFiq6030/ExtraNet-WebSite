@@ -1,12 +1,21 @@
-import Router from "./router/Router";
+import React from "react";
+import Nav from "./components/common/Nav";
+import Footer from "./components/common/Footer";
+import Hero from "./components/homePage/Hero";
+import ServicesSection from "./components/homePage/Services";
+import PackagesSection from "./components/homePage/Packages";
+import ContactSection from "./components/homePage/Contact";
+
+import "./index.css";
 
 function App() {
   return (
-    // <Routes>
-    //   <Route path="/" element={<HomePage />} />
-    //   <Route path="/about" element={<h1>About Page</h1>} />
-    // </Routes>
-    <Router />
+    <div className="App">
+      <Hero />
+      <ServicesSection />
+      <PackagesSection />
+      <ContactSection />
+    </div>
   );
 }
 
