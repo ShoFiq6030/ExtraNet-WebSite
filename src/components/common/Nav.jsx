@@ -92,23 +92,8 @@ export default function Nav() {
 
   return (
     <>
-      <div className="  text-white px-4 fixed top-0 left-0 w-full z-20">
-        <div className=" py-1 flex justify-between items-center w-full bg-gray-500">
-          <Marquee className=" w-full lg:w-3/4 ">
-            <span className="mx-4"></span>
-            <span>
-              নিরবিচ্ছিন্ন ইন্টারনেট সেবা পেতে অনুগ্রহ করে মেয়াদ শেষ হওয়ার
-              পূর্বে আপনার ইন্টারনেট বিল প্রদান করুন।{" "}
-            </span>
-          </Marquee>
-          <div className="lg:w-1/4 hidden md:block lg:flex justify-center items-center text-lg">
-            <FaPhoneAlt />
-            <span className="ml-2">+8801407020485</span>
-            <span className="ml-2">+8801811474616</span>
-          </div>
-        </div>
-
-        <div className="navbar bg-gray-700">
+      <div className=" bg-gray-700 text-white px-4 fixed top-10 left-0 w-full z-20">
+        <div className="navbar ">
           {/* Logo Section */}
           <div className="flex-1">
             <div className="flex items-center" onClick={() => setIsOpen(false)}>
