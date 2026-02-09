@@ -94,7 +94,7 @@ export default function Nav() {
   return (
     <>
       <div className=" bg-gray-700 text-white px-4 fixed top-10 left-0 w-full z-20">
-        <div className="navbar ">
+        <div className="navbar container mx-auto">
           {/* Logo Section */}
           <div className="flex-1">
             <div className="flex items-center" onClick={() => setIsOpen(false)}>
@@ -207,7 +207,7 @@ export default function Nav() {
 
           {/* Mobile Menu */}
           {isOpen && (
-            <div className="absolute top-16 left-0 w-full bg-gray-700 md:hidden z-10">
+            <div className="absolute top-16 left-0 w-full bg-gray-600/80 md:hidden z-10">
               <ul className="menu menu-vertical p-4 w-full space-y-2 text-lg flex flex-col items-center">
                 <li>
                   <button

@@ -170,7 +170,7 @@ export default function FeaturedPackages() {
               <h3 className={`text-2xl font-bold ${pkg.textColor} mb-2`}>
                 {pkg.name}
               </h3>
-              <p className={`${pkg.priceColor} text-3xl font-bold mb-4`}>
+              <p className={`text-gray-100 text-3xl font-bold mb-4`}>
                 {pkg.price}
               </p>
               <p
@@ -195,7 +195,7 @@ export default function FeaturedPackages() {
           {packages.length > initialCount && (
             <button
               onClick={() => setShowAll((s) => !s)}
-              className="text-primary-color font-bold hover:text-orange-600"
+              className="text-gray-300 font-bold hover:text-orange-600"
             >
               {showAll ? "Show Less" : "View All Plans →"}
             </button>

@@ -1,91 +1,181 @@
-import React from "react";
-import { Link, NavLink } from "react-router";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router";
 import logo from "../../assets/etlogo-removebg.png";
 
 export default function Footer() {
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  useEffect(() => {
+    const storedCount = localStorage.getItem("visitorCount");
+    const currentCount = storedCount ? parseInt(storedCount, 10) + 1 : 1;
+    localStorage.setItem("visitorCount", currentCount.toString());
+    setVisitorCount(currentCount);
+  }, []);
+
+  const scrollToSection = (id) => {
+    if (!id || id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="footer sm:footer-horizontal  text-neutral-content items-center p-4">
-      <aside className="grid-flow-col items-center">
-        <div className="flex-1">
-          <NavLink to="/" className="flex items-center">
-            <img
-              src={logo}
-              alt="logo"
-              className="w-12 mr-2"
-            />
-            {/* <div className="primary-color text-2xl md:text-3xl font-bold leading-none">
-              <h1>
-                ExtraNet <br />
-                <span>Technologies</span>
-              </h1>
-            </div> */}
-          </NavLink>
+    <footer className="bg-slate-900 text-slate-100 py-12">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <div className="flex flex-col gap-4">
+            <Link to="/" className="flex items-center gap-3">
+              <img src={logo} alt="ExtraNet logo" className="w-14 h-auto" />
+              <div>
+                <h3 className="text-lg font-semibold">ExtraNet Technologies</h3>
+                <p className="text-sm text-slate-300">
+                  Connecting businesses with modern web solutions.
+                </p>
+              </div>
+            </Link>
+            <div className="flex gap-3 mt-2">
+              <a
+                href="https://www.facebook.com/ExtranetTechnologies"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="p-2 rounded-md bg-slate-800 hover:bg-slate-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  className="fill-current text-white"
+                >
+                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                </svg>
+              </a>
+              <a
+                href="https://wa.me/8801407020485"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                className="p-2 rounded-md bg-emerald-600 hover:bg-emerald-500"
+              >
+                <svg
+                  fill="#000000"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  height="20"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <title>whatsapp</title>{" "}
+                    <path d="M26.576 5.363c-2.69-2.69-6.406-4.354-10.511-4.354-8.209 0-14.865 6.655-14.865 14.865 0 2.732 0.737 5.291 2.022 7.491l-0.038-0.070-2.109 7.702 7.879-2.067c2.051 1.139 4.498 1.809 7.102 1.809h0.006c8.209-0.003 14.862-6.659 14.862-14.868 0-4.103-1.662-7.817-4.349-10.507l0 0zM16.062 28.228h-0.005c-0 0-0.001 0-0.001 0-2.319 0-4.489-0.64-6.342-1.753l0.056 0.031-0.451-0.267-4.675 1.227 1.247-4.559-0.294-0.467c-1.185-1.862-1.889-4.131-1.889-6.565 0-6.822 5.531-12.353 12.353-12.353s12.353 5.531 12.353 12.353c0 6.822-5.53 12.353-12.353 12.353h-0zM22.838 18.977c-0.371-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.185-0.837 0.187-0.246 0.371-0.958 1.207-1.175 1.455-0.216 0.249-0.434 0.279-0.805 0.094-1.15-0.466-2.138-1.087-2.997-1.852l0.010 0.009c-0.799-0.74-1.484-1.587-2.037-2.521l-0.028-0.052c-0.216-0.371-0.023-0.572 0.162-0.757 0.167-0.166 0.372-0.434 0.557-0.65 0.146-0.179 0.271-0.384 0.366-0.604l0.006-0.017c0.043-0.087 0.068-0.188 0.068-0.296 0-0.131-0.037-0.253-0.101-0.357l0.002 0.003c-0.094-0.186-0.836-2.014-1.145-2.758-0.302-0.724-0.609-0.625-0.836-0.637-0.216-0.010-0.464-0.012-0.712-0.012-0.395 0.010-0.746 0.188-0.988 0.463l-0.001 0.002c-0.802 0.761-1.3 1.834-1.3 3.023 0 0.026 0 0.053 0.001 0.079l-0-0.004c0.131 1.467 0.681 2.784 1.527 3.857l-0.012-0.015c1.604 2.379 3.742 4.282 6.251 5.564l0.094 0.043c0.548 0.248 1.25 0.513 1.968 0.74l0.149 0.041c0.442 0.14 0.951 0.221 1.479 0.221 0.303 0 0.601-0.027 0.889-0.078l-0.031 0.004c1.069-0.223 1.956-0.868 2.497-1.749l0.009-0.017c0.165-0.366 0.261-0.793 0.261-1.242 0-0.185-0.016-0.366-0.047-0.542l0.003 0.019c-0.092-0.155-0.34-0.247-0.712-0.434z"></path>{" "}
+                  </g>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold mb-3">Quick Navigation</h4>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("home")}
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("about")}
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  About
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("services")}
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  Services
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("packages")}
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  Packages
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("contact")}
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            {/* <h4 className="text-sm font-semibold mb-3">Contact & Address</h4> */}
+            <address className="not-italic text-sm text-slate-300 space-y-2">
+              <div className="font-bold text-xl">ExtraNet Technologies</div>
+              <div>Ovijan 60, College Gate, Tongi</div>
+              <div>Gazipur, Bangladesh</div>
+              <div className="pt-2">
+                Phone:{" "}
+                <a href="tel:+8801407020485" className="hover:text-white">
+                  +8801407020485
+                </a>
+              </div>
+              <div>
+                Email:{" "}
+                <a href="mailto:info@extranet.com" className="hover:text-white">
+                  info@extranet.com
+                </a>
+              </div>
+            </address>
+          </div>
         </div>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
-      </aside>
-      <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-        {/* <a>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current"
-          >
-            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-          </svg>
-        </a>
-        <a>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current"
-          >
-            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-          </svg>
-        </a> */}
-        <Link
-          to="https://www.facebook.com/ExtranetTechnologies"
-          target="_blank"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current"
-          >
-            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-          </svg>
-        </Link>
-        <Link to="/">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-          >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              {" "}
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M3.50002 12C3.50002 7.30558 7.3056 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C10.3278 20.5 8.77127 20.0182 7.45798 19.1861C7.21357 19.0313 6.91408 18.9899 6.63684 19.0726L3.75769 19.9319L4.84173 17.3953C4.96986 17.0955 4.94379 16.7521 4.77187 16.4751C3.9657 15.176 3.50002 13.6439 3.50002 12ZM12 1.5C6.20103 1.5 1.50002 6.20101 1.50002 12C1.50002 13.8381 1.97316 15.5683 2.80465 17.0727L1.08047 21.107C0.928048 21.4637 0.99561 21.8763 1.25382 22.1657C1.51203 22.4552 1.91432 22.5692 2.28599 22.4582L6.78541 21.1155C8.32245 21.9965 10.1037 22.5 12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5ZM14.2925 14.1824L12.9783 15.1081C12.3628 14.7575 11.6823 14.2681 10.9997 13.5855C10.2901 12.8759 9.76402 12.1433 9.37612 11.4713L10.2113 10.7624C10.5697 10.4582 10.6678 9.94533 10.447 9.53028L9.38284 7.53028C9.23954 7.26097 8.98116 7.0718 8.68115 7.01654C8.38113 6.96129 8.07231 7.046 7.84247 7.24659L7.52696 7.52195C6.76823 8.18414 6.3195 9.2723 6.69141 10.3741C7.07698 11.5163 7.89983 13.314 9.58552 14.9997C11.3991 16.8133 13.2413 17.5275 14.3186 17.8049C15.1866 18.0283 16.008 17.7288 16.5868 17.2572L17.1783 16.7752C17.4313 16.5691 17.5678 16.2524 17.544 15.9269C17.5201 15.6014 17.3389 15.308 17.0585 15.1409L15.3802 14.1409C15.0412 13.939 14.6152 13.9552 14.2925 14.1824Z"
-                fill="#ffffff"
-              ></path>{" "}
-            </g>
-          </svg>
-        </Link>
-      </nav>
+
+        <div className="border-t border-slate-800 mt-8 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400 gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <p>
+              © {new Date().getFullYear()} ExtraNet Technologies. All rights
+              reserved.
+            </p>
+           
+          </div>
+          <div className="mt-3 md:mt-0">
+            <Link to="/privacy" className="hover:text-white mr-4">
+              Privacy
+            </Link>
+            <Link to="/terms" className="hover:text-white">
+              Terms
+            </Link>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

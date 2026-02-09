@@ -56,19 +56,19 @@ export default function AboutSection() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="bg-gray-700 p-6 rounded-lg text-center">
-            <h3 className="text-4xl font-bold text-primary-color mb-2">5K+</h3>
+            <h3 className="text-4xl font-bold text-gray-100 mb-2">5K+</h3>
             <p className="text-gray-300 text-sm">Active Customers</p>
           </div>
           <div className="bg-gray-700 p-6 rounded-lg text-center">
-            <h3 className="text-4xl font-bold text-primary-color mb-2">99.9%</h3>
+            <h3 className="text-4xl font-bold text-gray-100 mb-2">99.9%</h3>
             <p className="text-gray-300 text-sm">Uptime Guarantee</p>
           </div>
           <div className="bg-gray-700 p-6 rounded-lg text-center">
-            <h3 className="text-4xl font-bold text-primary-color mb-2">24/7</h3>
+            <h3 className="text-4xl font-bold text-gray-100 mb-2">24/7</h3>
             <p className="text-gray-300 text-sm">Customer Support</p>
           </div>
           <div className="bg-gray-700 p-6 rounded-lg text-center">
-            <h3 className="text-4xl font-bold text-primary-color mb-2">9+</h3>
+            <h3 className="text-4xl font-bold text-gray-100 mb-2">9+</h3>
             <p className="text-gray-300 text-sm">Years Experience</p>
           </div>
         </div>

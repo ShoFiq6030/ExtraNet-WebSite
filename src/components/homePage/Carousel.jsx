@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { FaArrowDown } from "react-icons/fa";
+import hero_1 from "../../assets/hero_1.jpg";
+import hero_2 from "../../assets/hero_2.jpg";
+import hero_3 from "../../assets/hero_3.jpg";
 
-const slides = [
-  "/src/assets/hero_1.jpg",
-  "/src/assets/hero_2.jpg",
-  "/src/assets/hero_3.jpg",
-];
+const slides = [hero_1, hero_2, hero_3];
 
 export default function Carousel() {
   const [current, setCurrent] = useState(0);
-
-  
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-    
     }
   };
 
@@ -39,7 +35,7 @@ export default function Carousel() {
   return (
     <div
       id="home"
-      className="relative w-full h-[300px] md:h-[600px] overflow-hidden"
+      className="relative mt-20 w-full h-[350px] md:h-[600px] overflow-hidden"
     >
       {slides.map((src, index) => (
         <div
@@ -51,7 +47,7 @@ export default function Carousel() {
         >
           <div className="w-full h-full bg-black bg-opacity-50 flex items-center">
             {
-              <div className="flex justify-between items-center w-full h-full px-10 lg:px-40">
+              <div className="container mx-auto mt-28 md:flex md:justify-between md:items-center w-full h-full px-10 lg:px-40">
                 <h2 className="text-xl md:text-3xl lg:text-6xl font-bold leading-tight lg:leading-normal text-white">
                   দ্রুত গতির <br />
                   ইন্টারনেট সংযোগ
@@ -60,7 +56,7 @@ export default function Carousel() {
                 </h2>
 
                 <button
-                  className="btn lg:w-[200px]  btn-warning bg-primary-color text-white"
+                  className="btn w-30 text-xs mt-10  lg:w-48  btn-warning bg-primary-color text-white"
                   onClick={() => scrollToSection("packages")}
                 >
                   View Packages <FaArrowDown className="ml-2 animate-bounce" />
